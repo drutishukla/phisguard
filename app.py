@@ -18,7 +18,7 @@ client = genai.Client(api_key=api_key)
 def preprocess(original):
     img_np = np.array(original.convert("RGB"))
     gray = cv2.cvtColor(img_np, cv2.COLOR_RGB2GRAY)
-    return gray
+    
     clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
     enhanced = clahe.apply(gray)
     return Image.fromarray(cv2.cvtColor(enhanced, cv2.COLOR_GRAY2RGB))
