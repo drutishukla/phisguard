@@ -5,7 +5,6 @@ import cv2
 from PIL import Image
 from google import genai
 from dotenv import load_dotenv
-
 load_dotenv()
 st.set_page_config(page_title="Sketch to Website", layout="wide")
 st.title("✏️ Sketch to Website")
