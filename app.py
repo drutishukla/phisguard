@@ -1,6 +1,7 @@
 import streamlit as st
 import re, os
 import numpy as np
+import cv2
 from PIL import Image
 from google import genai
 from dotenv import load_dotenv
@@ -14,9 +15,10 @@ style = st.sidebar.selectbox("Style Chuno", ["Modern Blue", "Dark Mode", "Minima
 api_key = os.getenv("GEMINI_API_KEY")
 client = genai.Client(api_key=api_key)
 
-def preprocess(pil_img):
-    img_np = np.array(pil_img.convert("RGB"))
+def preprocess(original):
+    img_np = np.array(original.convert("RGB"))
     gray = cv2.cvtColor(img_np, cv2.COLOR_RGB2GRAY)
+    return gray
     clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
     enhanced = clahe.apply(gray)
     return Image.fromarray(cv2.cvtColor(enhanced, cv2.COLOR_GRAY2RGB))
