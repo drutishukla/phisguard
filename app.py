@@ -1,5 +1,5 @@
 import streamlit as st
-import cv2, re, os
+import re, os
 import numpy as np
 from PIL import Image
 from google import genai
