@@ -37,7 +37,7 @@ if uploaded:
     if st.button("✨ Website Banao", type="primary"):
         with st.spinner("Bana raha hu..."):
             prompt = f"Convert this hand-drawn wireframe to single-file HTML with Tailwind CSS via CDN. Style: {style}. Keep same layout. Only return HTML code."
-            res = client.models.generate_content(model="gemini-3.8-flash", contents=[processed, prompt])
+            res = client.models.generate_content(model="gemini-2.5-flash", contents=[processed, prompt])
             code = clean(res.text)
             st.session_state['code'] = code
 
